@@ -8,11 +8,12 @@ router.get('/', function(req, res) {
 
 router.get('/failed', function(req, res) {
   req.flash("age" ,12);
+  req.flash("name" ,"harsh");
   res.send("bangaya");
 });
 
 router.get('/checkkaro', function(req, res) {
-  console.log(req.flash("age"));
+  console.log(req.flash("age"),req.flash("name"));
   res.send("check karo be ke terminal par");
 });
 
