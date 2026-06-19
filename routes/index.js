@@ -20,8 +20,8 @@ let userdata = await userModel.create({
 
 
 router.get('/find',async function(req, res) {
-  var regex = new RegExp("^harSh$",'i');
-  let user = await userModel.find({username: regex});
+  var regex = new RegExp("^hArsh$",'i');
+  let user = await userModel.findOne({username: regex});
   res.send(user);
 });
 
