@@ -19,13 +19,17 @@ let userdata = await userModel.create({
 });
 
 
-router.get("/find", async function(req,res){
-  let user = await userModel.find({categories:{$exists:true}});
+router.get('/find',async function(req, res) {
+  let user = await userModel.find({
+    $expr: {
+      $and : [
+        {$gte: [{$strLenCP:'$nickname'},13]},
+        {$lte: [{$strLenCP:'$nickname'},122]} 
+      ]
+    }
+  });
   res.send(user);
-})
-
-
-
+});
 
 
 module.exports = router;
