@@ -20,10 +20,7 @@ let userdata = await userModel.create({
 
 
 router.get("/find", async function(req,res){
-  var date1 = new Date ('2026-06-19');
-  var date2 = new Date('2026-06-20');
-
-  let user = await userModel.find({datecreated:{$gte:date1,$lte:date2}});
+  let user = await userModel.find({categories:{$exists:true}});
   res.send(user);
 })
 
